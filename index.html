@@ -33,19 +33,15 @@
     .prose h2{margin-top:2.2rem;margin-bottom:.6rem;font-size:1.6rem}
     .prose h3{margin-top:1.6rem;margin-bottom:.35rem;font-size:1.2rem;color:var(--muted)}
     .prose p{margin:.2rem 0 1rem 0}
-    .card{border:1px solid var(--line);border-radius:var(--radius);padding:16px}
     .pill{display:inline-flex;gap:8px;align-items:center;background:#f8fafc;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:.9rem;color:var(--muted);cursor:pointer}
     .pill:hover{border-color:#cbd5e1}
     .meta{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted)}
-    .quick{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
     .footer{border-top:1px solid var(--line);margin-top:36px;padding-top:18px;color:var(--muted)}
     .muted{color:var(--muted)}
     .list-tight li{margin:.35rem 0}
     .anchor{opacity:.0;margin-left:.25rem;font-size:.9rem;text-decoration:none}
     h2:hover .anchor{opacity:1}
-    blockquote{border-left:3px solid var(--line);padding-left:14px;margin:0 0 1rem 0;color:var(--muted)}
-    code.inline{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#f8fafc;border:1px solid var(--line);padding:.1rem .35rem;border-radius:6px}
-    .link-list{word-break:break-all}
+    [data-lang="mn"] { display: none; }
   </style>
 </head>
 <body>
@@ -57,15 +53,11 @@
           <h1>From Local Models to Lasting Moments</h1>
           <div class="meta">
             <span data-lang="en">How AI moves—and splits—creativity</span>
-            <span data-lang="mn" style="display:none">Хиймэл оюун ухаан бүтээлч байдлыг хэрхэн хөдөлгөж, хувааж байгааг</span>
+            <span data-lang="mn">Хиймэл оюун ухаан бүтээлч байдлыг хэрхэн хөдөлгөж, хувааж байгааг</span>
             <span>•</span>
             <span class="muted">Updated: <span id="updated"></span></span>
           </div>
           <div class="quick">
-            <a class="pill" href="#toc">Quicklinks</a>
-            <a class="pill" href="#link-pack">All links</a>
-            <a class="pill" href="#starter-kit">Starter kit</a>
-            <button class="pill" id="copyLinks">Copy link pack</button>
             <button class="pill" onclick="setLang('mn')">MN</button>
             <button class="pill" onclick="setLang('en')">EN</button>
           </div>
@@ -96,10 +88,10 @@
 
       <article class="prose">
 
-        <!-- Neue Sektion: Getting Started -->
+        <!-- Getting Started Section -->
         <section id="getting-started">
           <h2 data-lang="en">0) How to build your own local AI machine with ComfyUI <a class="anchor" href="#getting-started">#</a></h2>
-          <h2 data-lang="mn" style="display:none">0) ComfyUI ашиглан өөрийн локал AI машиныг хэрхэн бүтээх вэ <a class="anchor" href="#getting-started">#</a></h2>
+          <h2 data-lang="mn">0) ComfyUI ашиглан өөрийн локал AI машиныг хэрхэн бүтээх вэ <a class="anchor" href="#getting-started">#</a></h2>
 
           <p data-lang="en">
             Start with <strong>ComfyUI</strong> for node-based image and video pipelines. 
@@ -110,7 +102,7 @@
             can get you started quickly, but your own machine gives the most freedom.
           </p>
 
-          <p data-lang="mn" style="display:none">
+          <p data-lang="mn">
             Зураг болон видео урсгалд зориулсан <strong>ComfyUI</strong>-г ашиглаж эхлээрэй. 
             Локал LLM-уудад зориулсан <strong>LM Studio</strong>, 
             нээлттэй эхийн програмуудыг нэг товшилтоор суулгах <strong>Pinokio</strong>-г нэмээрэй.
@@ -121,46 +113,37 @@
           </p>
         </section>
 
-        <!-- Rest deines bisherigen Inhalts (Origin, Flood, Iceberg …) -->
-        <!-- ... Hier bleibt alles aus deiner bestehenden Datei unverändert ... -->
-
+        <!-- Example Origin Section -->
         <section id="origin">
-          <h2>1) A short origin story: from Word to workflows <a class="anchor" href="#origin">#</a></h2>
-          <p>I didn’t start in AI. I started in Microsoft Word—ten years of headlines, long copy, and deadlines. ...</p>
+          <h2 data-lang="en">1) A short origin story: from Word to workflows <a class="anchor" href="#origin">#</a></h2>
+          <h2 data-lang="mn">1) Өгүүлэл: Word-оос ажлын урсгал хүртэл <a class="anchor" href="#origin">#</a></h2>
+
+          <p data-lang="en">
+            I didn’t start in AI. I started in Microsoft Word—ten years of headlines, long copy, and deadlines. ...
+          </p>
+          <p data-lang="mn">
+            Би AI-гаас эхлээгүй. Би Microsoft Word дээр эхэлсэн — арван жилийн турш гарчиг, урт текст, хугацааны дарамт. ...
+          </p>
         </section>
 
-        <!-- (alle weiteren Sektionen: flood, iceberg, local, fragment, lead, companions, metrics, starter-kit, closing, link-pack, refs, footer) -->
+        <!-- weitere Sections wie flood, iceberg, local, ... hier einsetzen -->
         
       </article>
     </main>
   </div>
 
   <script>
-    // Update timestamps
     const d = new Date();
     document.getElementById('updated').textContent = d.toLocaleDateString();
-    document.getElementById('year').textContent = d.getFullYear();
 
-    // Copy raw deck links to clipboard
-    document.getElementById('copyLinks').addEventListener('click', () => {
-      const list = Array.from(document.querySelectorAll('#deckLinks li')).map(li => li.textContent.trim());
-      const blob = list.join('\n');
-      navigator.clipboard.writeText(blob).then(()=>{
-        document.getElementById('copyLinks').textContent = 'Copied ✓';
-        setTimeout(()=>{document.getElementById('copyLinks').textContent='Copy link pack';},1500);
-      });
-    });
-
-    // Language switcher
     function setLang(lang){
       document.querySelectorAll('[data-lang]').forEach(el=>{
-        if(el.getAttribute('data-lang')===lang){
-          el.style.display='';
-        } else {
-          el.style.display='none';
-        }
+        el.style.display = (el.getAttribute('data-lang')===lang) ? '' : 'none';
       });
     }
+
+    // Standardmäßig MN anzeigen
+    setLang('mn');
   </script>
 </body>
 </html>
