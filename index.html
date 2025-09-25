@@ -1,66 +1,74 @@
 <!doctype html>
-<html lang="en">
+<html lang="mn">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>From Local Models to Lasting Moments — Companion Website</title>
-  <meta name="description" content="Companion website to the keynote: local, personal AI, the content flood, and why creativity refracts into new forms. Includes sources, link pack, and practical starter kit." />
+  <meta name="description" content="Companion website to the keynote: local AI, the content flood, and why creativity refracts into new forms. Includes sources, link pack, and starter kit." />
   <style>
-    :root{
-      --bg:#ffffff;--fg:#0f172a;--muted:#475569;--line:#e2e8f0;--accent:#111827;--accent2:#2563eb;
-      --max: 960px;--radius:18px;
-    }
+    :root{--bg:#ffffff;--fg:#0f172a;--muted:#475569;--line:#e2e8f0;--accent2:#2563eb;--max: 1000px;--radius:18px}
     html{scroll-behavior:smooth}
     body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Inter,Ubuntu,Helvetica,Arial,sans-serif}
-    a{color:var(--accent2);text-decoration:none}
-    a:hover{text-decoration:underline}
-    header{position:sticky;top:0;background:rgba(255,255,255,.88);backdrop-filter:saturate(1.5) blur(6px);border-bottom:1px solid var(--line);z-index:50}
-    .wrap{max-width:var(--max);margin-inline:auto;padding:20px}
-    .title{display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap}
+    a{color:var(--accent2);text-decoration:none} a:hover{text-decoration:underline}
+    header{position:sticky;top:0;background:rgba(255,255,255,.9);backdrop-filter:saturate(1.3) blur(6px);border-bottom:1px solid var(--line);z-index:50}
+    .wrap{max-width:var(--max);margin-inline:auto;padding:18px}
+    .title{display:flex;flex-direction:column;gap:8px}
     h1{font-weight:800;letter-spacing:-.02em;line-height:1.1;margin:0}
     h2,h3{letter-spacing:-.01em}
     nav.toc{border:1px solid var(--line);border-radius:var(--radius);padding:16px;background:#fff}
     nav.toc h2{font-size:1.05rem;margin:.25rem 0 .75rem 0}
-    nav.toc ul{list-style:none;padding:0;margin:0;columns:1}
+    nav.toc ul{list-style:none;padding:0;margin:0}
     nav.toc li{margin:.4rem 0}
     nav.toc a{color:var(--muted)}
-    @media(min-width:900px){
-      main{display:grid;grid-template-columns:260px 1fr;gap:28px}
-      nav.toc{position:sticky;top:84px;height:max-content}
-      nav.toc ul{columns:1}
-    }
+    @media(min-width:980px){ main{display:grid;grid-template-columns:280px 1fr;gap:28px} nav.toc{position:sticky;top:88px;height:max-content} }
     section{scroll-margin-top:96px}
     .prose h2{margin-top:2.2rem;margin-bottom:.6rem;font-size:1.6rem}
     .prose h3{margin-top:1.6rem;margin-bottom:.35rem;font-size:1.2rem;color:var(--muted)}
     .prose p{margin:.2rem 0 1rem 0}
+    .card{border:1px solid var(--line);border-radius:12px;padding:14px}
     .pill{display:inline-flex;gap:8px;align-items:center;background:#f8fafc;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:.9rem;color:var(--muted);cursor:pointer}
     .pill:hover{border-color:#cbd5e1}
-    .meta{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted)}
+    .meta{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.9rem}
     .footer{border-top:1px solid var(--line);margin-top:36px;padding-top:18px;color:var(--muted)}
     .muted{color:var(--muted)}
     .list-tight li{margin:.35rem 0}
     .anchor{opacity:.0;margin-left:.25rem;font-size:.9rem;text-decoration:none}
     h2:hover .anchor{opacity:1}
-    [data-lang="mn"] { display: none; }
+    blockquote{border-left:3px solid var(--line);padding-left:14px;margin:0 0 1rem 0;color:var(--muted)}
+    .link-list{word-break:break-all}
+
+    /* Sprachumschaltung – zentral & robust */
+    html[lang="en"] [data-lang="mn"] { display: none !important; }
+    html[lang="mn"] [data-lang="en"] { display: none !important; }
   </style>
 </head>
 <body>
   <header>
     <div class="wrap">
       <div class="title">
-        <div>
-          <div class="kicker">Companion Site</div>
-          <h1>From Local Models to Lasting Moments</h1>
-          <div class="meta">
-            <span data-lang="en">How AI moves—and splits—creativity</span>
-            <span data-lang="mn">Хиймэл оюун ухаан бүтээлч байдлыг хэрхэн хөдөлгөж, хувааж байгааг</span>
-            <span>•</span>
-            <span class="muted">Updated: <span id="updated"></span></span>
-          </div>
-          <div class="quick">
-            <button class="pill" onclick="setLang('mn')">MN</button>
-            <button class="pill" onclick="setLang('en')">EN</button>
-          </div>
+        <div class="kicker" data-lang="en">Companion Site</div>
+        <div class="kicker" data-lang="mn">Хамтрагч хуудас</div>
+        <h1>From Local Models to Lasting Moments</h1>
+
+        <!-- Bio -->
+        <div class="meta">
+          <span>Lukas Bausch — Director of AI Innovations</span>
+          <span>•</span>
+          <a href="https://www.linkedin.com/in/lukas-bausch-974a93a0" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+
+        <!-- Tagline + Updated -->
+        <div class="meta">
+          <span data-lang="en">How AI moves—and splits—creativity</span>
+          <span data-lang="mn">Хиймэл оюун ухаан бүтээлч байдлыг хэрхэн хөдөлгөж, салбарлуулж байгааг</span>
+          <span>•</span>
+          <span class="muted">Updated: <span id="updated"></span></span>
+        </div>
+
+        <!-- Language buttons -->
+        <div class="quick" style="margin-top:6px">
+          <button class="pill" id="btnMN" aria-label="Switch to Mongolian">MN</button>
+          <button class="pill" id="btnEN" aria-label="Switch to English">EN</button>
         </div>
       </div>
     </div>
@@ -68,9 +76,11 @@
 
   <div class="wrap">
     <main>
+      <!-- Sidebar: bilingual labels, same anchors -->
       <nav class="toc" id="toc">
-        <h2>Quicklinks</h2>
-        <ul>
+        <h2 data-lang="en">Quicklinks</h2>
+        <h2 data-lang="mn">Түргэн холбоосууд</h2>
+        <ul data-lang="en">
           <li><a href="#getting-started">0) Build your local AI machine</a></li>
           <li><a href="#origin">1) A short origin story</a></li>
           <li><a href="#flood">2) The content flood</a></li>
@@ -82,68 +92,324 @@
           <li><a href="#metrics">8) Hype metrics & loops</a></li>
           <li><a href="#starter-kit">9) What to build next</a></li>
           <li><a href="#closing">10) The closing stance</a></li>
-          <li><a href="#link-pack">All links</a></li>
+          <li><a href="#link-pack">All links from the deck</a></li>
+          <li><a href="#refs">References & extras</a></li>
+        </ul>
+        <ul data-lang="mn">
+          <li><a href="#getting-started">0) Локал AI машин хэрхэн босгох вэ</a></li>
+          <li><a href="#origin">1) Товч түүх</a></li>
+          <li><a href="#flood">2) Контентийн үер</a></li>
+          <li><a href="#iceberg">3) Мөсөрдийн орой</a></li>
+          <li><a href="#local">4) Локалын ач холбогдол</a></li>
+          <li><a href="#fragment">5) Шилжилтээс хуваагдал руу</a></li>
+          <li><a href="#lead">6) Удирдагчдын байр суурь</a></li>
+          <li><a href="#companions">7) Хүмүүнлэг тойруу</a></li>
+          <li><a href="#metrics">8) Хэт дэврүүлэлт ба давталт</a></li>
+          <li><a href="#starter-kit">9) Дараа нь юу барих вэ</a></li>
+          <li><a href="#closing">10) Төгсгөлийн байр суурь</a></li>
+          <li><a href="#link-pack">Илтгэлийн бүх холбоос</a></li>
+          <li><a href="#refs">Эх сурвалж ба нэмэлтүүд</a></li>
         </ul>
       </nav>
 
       <article class="prose">
-
-        <!-- Getting Started Section -->
+        <!-- 0) Getting Started -->
         <section id="getting-started">
           <h2 data-lang="en">0) How to build your own local AI machine with ComfyUI <a class="anchor" href="#getting-started">#</a></h2>
           <h2 data-lang="mn">0) ComfyUI ашиглан өөрийн локал AI машиныг хэрхэн бүтээх вэ <a class="anchor" href="#getting-started">#</a></h2>
 
           <p data-lang="en">
-            Start with <strong>ComfyUI</strong> for node-based image and video pipelines. 
-            Add <strong>LM Studio</strong> for local LLMs, and <strong>Pinokio</strong> for one-click open-source installs.
-            For hardware, an <strong>NVIDIA GPU with at least 20GB VRAM</strong> is recommended.
-            Websites like <a href="https://thinkdiffusion.com" target="_blank">thinkdiffusion.com</a> 
-            or <a href="https://rundiffusion.com" target="_blank">rundiffusion.com</a> 
-            can get you started quickly, but your own machine gives the most freedom.
+            Start with <strong>ComfyUI</strong> for node-based image/video pipelines. Add <strong>LM Studio</strong> for local LLMs,
+            and <strong>Pinokio</strong> for one-click open-source installs. For hardware, an
+            <strong>NVIDIA GPU with at least 20GB VRAM</strong> is recommended. Sites like
+            <a href="https://thinkdiffusion.com" target="_blank" rel="noopener">thinkdiffusion.com</a> and
+            <a href="https://rundiffusion.com" target="_blank" rel="noopener">rundiffusion.com</a> get you started fast,
+            but your own machine gives the most freedom.
           </p>
-
           <p data-lang="mn">
-            Зураг болон видео урсгалд зориулсан <strong>ComfyUI</strong>-г ашиглаж эхлээрэй. 
-            Локал LLM-уудад зориулсан <strong>LM Studio</strong>, 
-            нээлттэй эхийн програмуудыг нэг товшилтоор суулгах <strong>Pinokio</strong>-г нэмээрэй.
-            Техникийн хувьд хамгийн тохиромжтой нь <strong>20GB VRAM-аас дээш NVIDIA GPU</strong> юм.
-            <a href="https://thinkdiffusion.com" target="_blank">thinkdiffusion.com</a> 
-            эсвэл <a href="https://rundiffusion.com" target="_blank">rundiffusion.com</a> зэрэг вэбсайтууд хурдан эхлэхэд тусалдаг,
-            харин өөрийн компьютер хамгийн их эрх чөлөө олгодог.
+            Зураг/видео урсгалын зангилаат хоолойн хувьд <strong>ComfyUI</strong>-гаас эхэл. Локал LLM-д <strong>LM Studio</strong>,
+            нээлттэй эхийн суулгалтад <strong>Pinokio</strong>-г нэм. Төхөөрөмж: хамгийн багадаа
+            <strong>20GB VRAM-тай NVIDIA GPU</strong> санал болгоно. Шуурхай эхлүүлэх бол
+            <a href="https://thinkdiffusion.com" target="_blank" rel="noopener">thinkdiffusion.com</a>,
+            <a href="https://rundiffusion.com" target="_blank" rel="noopener">rundiffusion.com</a> сайн; харин өөрийн машин хамгийн их эрх чөлөө өгнө.
           </p>
         </section>
 
-        <!-- Example Origin Section -->
+        <!-- 1) Origin -->
         <section id="origin">
           <h2 data-lang="en">1) A short origin story: from Word to workflows <a class="anchor" href="#origin">#</a></h2>
-          <h2 data-lang="mn">1) Өгүүлэл: Word-оос ажлын урсгал хүртэл <a class="anchor" href="#origin">#</a></h2>
+          <h2 data-lang="mn">1) Товч түүх: Word-оос ажлын урсгал руу <a class="anchor" href="#origin">#</a></h2>
 
           <p data-lang="en">
-            I didn’t start in AI. I started in Microsoft Word—ten years of headlines, long copy, and deadlines. ...
+            I didn’t start in AI. I started in Microsoft Word—ten years of headlines, long copy, and deadlines. Then my toolset exploded:
+            design, motion, audio, code. I wasn’t a coder, but with tutorials—now AI—I learned fast. The real shift wasn’t one app;
+            it was moving from linear writing to orchestrating creative systems. Local AI mattered: not another cloud site, but
+            controllable building blocks on my own machine. Practically? I stopped waiting and started <em>composing</em> pipelines myself.
+          </p>
+          <h3 data-lang="en">Three vignettes that changed my mind</h3>
+          <ul class="list-tight" data-lang="en">
+            <li><strong>Museum remix (Hamburg):</strong> a local LoRA made style-transfer identity-aware.</li>
+            <li><strong>The Plumbus test:</strong> a tiny LoRA teaches an absurd 3D concept base models miss.</li>
+            <li><strong>Produce in post:</strong> reconstruct with 3D Gaussian splats; direct light/weather/camera later.</li>
+          </ul>
+
+          <p data-lang="mn">
+            Миний эхлэл AI биш. Microsoft Word дээр гарчиг, урт эх, дедлайнтай арван жил—дараа нь хэрэгсэл минь тэслээ:
+            дизайн, хөдөлгөөнт зураг, аудио, код. Жинхэнэ шилжилт ганц апп биш, харин шулуун бичвэрээс систем найруулга руу.
+            Локал AI энд чухал: өөрийн машин дээрх хянагдах блокнуудад тулгуурлана. Би хүлээхээ больж, өөрөө <em>найруулж</em> эхэлсэн.
+          </p>
+          <h3 data-lang="mn">Миний сэтгэл өөрчилсөн гурван жишээ</h3>
+          <ul class="list-tight" data-lang="mn">
+            <li><strong>Музейн ремикс:</strong> локал LoRA нь стилийг “танигдах” болгосон.</li>
+            <li><strong>Plumbus тест:</strong> жижиг LoRA суурь загваруудын “ойлгодоггүй” 3D ойлголтыг заасан.</li>
+            <li><strong>Пост-продакшн үйлдвэрлэл:</strong> 3D splat-аар сэргээж, гэрэл/цаг агаар/камерыг дараа нь найруулсан.</li>
+          </ul>
+        </section>
+
+        <!-- 2) Flood -->
+        <section id="flood">
+          <h2 data-lang="en">2) The content flood—and why output ≠ meaning <a class="anchor" href="#flood">#</a></h2>
+          <h2 data-lang="mn">2) Контентийн үер — гарц ≠ утга учир <a class="anchor" href="#flood">#</a></h2>
+
+          <p data-lang="en">
+            Agents now spin up whole pipelines: meta-prompts, renders, edits, packaging. When everything can be made,
+            scarcity shifts to attention, taste, purpose. Beware the pattern: <strong>output first, purpose later (optional)</strong>.
           </p>
           <p data-lang="mn">
-            Би AI-гаас эхлээгүй. Би Microsoft Word дээр эхэлсэн — арван жилийн турш гарчиг, урт текст, хугацааны дарамт. ...
+            Агентууд бүхэл урсгалыг асаана: мета промпт, рэндэр, засвар, сав баглаа. Юуг ч хийж болдог үед хомс зүйл нь
+            анхаарал, мэдрэмж, зорилго болж хувирна. <strong>Эхлээд гарц, дараа нь (эсвэл огт) зорилго</strong> гэдэг муу хэвшмэлээс болгоомжил.
           </p>
         </section>
 
-        <!-- weitere Sections wie flood, iceberg, local, ... hier einsetzen -->
-        
+        <!-- 3) Iceberg -->
+        <section id="iceberg">
+          <h2 data-lang="en">3) Tip of the iceberg: better questions still win <a class="anchor" href="#iceberg">#</a></h2>
+          <h2 data-lang="mn">3) Мөсөрдийн орой: сайн асуулт ялсаар <a class="anchor" href="#iceberg">#</a></h2>
+
+          <p data-lang="en">
+            Instant answers ≠ deep understanding. The visible 10% is fluent; the hidden 90%—context, rarity, surprise—needs curiosity and domain sense.
+          </p>
+          <p data-lang="mn">
+            Шуурхай хариулт нь гүн ойлголт биш. Харагдах 10% цэгцтэй ч, далд 90%—контекст, ховор, гайхал—сониуч зан, салбарын мэдрэмж шаарддаг.
+          </p>
+        </section>
+
+        <!-- 4) Local -->
+        <section id="local">
+          <h2 data-lang="en">4) Local matters: autonomy, difference, control <a class="anchor" href="#local">#</a></h2>
+          <h2 data-lang="mn">4) Локал чухал: бие даалт, ялгарал, хяналт <a class="anchor" href="#local">#</a></h2>
+
+          <p data-lang="en">
+            Local models shift power: privacy, reproducibility, freedom to tinker. Wire ComfyUI; keep assistants offline with LM Studio;
+            install OSS with Pinokio; connect via Model Context Protocol so tools use <em>your</em> models/files without the cloud.
+          </p>
+          <ul class="list-tight" data-lang="en">
+            <li><strong>Capture → splat → direct</strong></li>
+            <li><strong>Brand lenses → “photographers”</strong></li>
+          </ul>
+
+          <p data-lang="mn">
+            Локал загварууд хүчийг шилжүүлнэ: нууцлал, давтагдах боломж, турших эрх чөлөө. ComfyUI-г уяж, LM Studio-гоор оффлайн байлгаж,
+            Pinokio-гоор суулгаж, Model Context Protocol-оор холбож <em>таны</em> загвар/файлыг клаудгүй ашиглуул.
+          </p>
+          <ul class="list-tight" data-lang="mn">
+            <li><strong>Бичлэг → splat → найруулга</strong></li>
+            <li><strong>Брэнд линз → “фотографчид”</strong></li>
+          </ul>
+        </section>
+
+        <!-- 5) Fragment -->
+        <section id="fragment">
+          <h2 data-lang="en">5) From relocation to <em>fragmentation</em> <a class="anchor" href="#fragment">#</a></h2>
+          <h2 data-lang="mn">5) Шилжилтээс <em>хуваагдал</em> руу <a class="anchor" href="#fragment">#</a></h2>
+
+          <p data-lang="en">
+            Synths didn’t kill music; they multiplied genres. AI similarly relocates creativity into tools and splits scenes into micro-ecosystems.
+          </p>
+          <p data-lang="mn">
+            Синтезатор хөгжимийг устгаагүй; урсгалуудыг олшруулсан. AI ч адил багаж руу шилжүүлж, бичил экосистем болгон хуваадаг.
+          </p>
+        </section>
+
+        <!-- 6) Lead -->
+        <section id="lead">
+          <h2 data-lang="en">6) The overload problem—and a better stance for leaders <a class="anchor" href="#lead">#</a></h2>
+          <h2 data-lang="mn">6) Хэт ачаалал—удирдагчдын зөв байр суурь <a class="anchor" href="#lead">#</a></h2>
+
+          <ol data-lang="en">
+            <li><strong>Purpose first, output later.</strong></li>
+            <li><strong>Design for difference.</strong></li>
+            <li><strong>Instrument the pipeline.</strong></li>
+            <li><strong>Check the wires.</strong></li>
+            <li><strong>Protect human judgment.</strong></li>
+          </ol>
+          <ol data-lang="mn">
+            <li><strong>Эхлээд зорилго.</strong></li>
+            <li><strong>Ялгаралд зориулах.</strong></li>
+            <li><strong>Пайплайнаа хэмжүүржүүлэх.</strong></li>
+            <li><strong>“Утас”-аа шалгах.</strong></li>
+            <li><strong>Хүний шүүлтийг хамгаалах.</strong></li>
+          </ol>
+        </section>
+
+        <!-- 7) Companions -->
+        <section id="companions">
+          <h2 data-lang="en">7) A humane detour: AI companions are rising—carefully <a class="anchor" href="#companions">#</a></h2>
+          <h2 data-lang="mn">7) Хүмүүнлэг тойруу: AI хамтрагчид өсч байна—болгоомжтой <a class="anchor" href="#companions">#</a></h2>
+
+          <p data-lang="en">Treat them as supplements, not replacements. Use consent, guardrails, human fallback.</p>
+          <p data-lang="mn">Орлуулалт бус, нэмэлт гэж үз. Зөвшөөрөл, хамгаалалт, хүний сэлгээг ашигла.</p>
+        </section>
+
+        <!-- 8) Metrics -->
+        <section id="metrics">
+          <h2 data-lang="en">8) Hype metrics & model loops <a class="anchor" href="#metrics">#</a></h2>
+          <h2 data-lang="mn">8) Хэт дэврүүлэлт ба загварын давталт <a class="anchor" href="#metrics">#</a></h2>
+
+          <p data-lang="en">Prefer primary sources; beware synthetic-on-synthetic training and collapse.</p>
+          <p data-lang="mn">Анхны эх сурвалжийг илүүд үз; синтетик өгөгдлөөр дахин сургах эрсдэлээс болгоомжил.</p>
+        </section>
+
+        <!-- 9) Starter Kit -->
+        <section id="starter-kit">
+          <h2 data-lang="en">9) What to build next (starter kit) <a class="anchor" href="#starter-kit">#</a></h2>
+          <h2 data-lang="mn">9) Дараа нь юу барих вэ (эхлэлийн багц) <a class="anchor" href="#starter-kit">#</a></h2>
+
+          <div class="card" data-lang="en">
+            <ul class="list-tight">
+              <li><strong>Your local bench:</strong> ComfyUI, LM Studio, Pinokio, Model Context Protocol</li>
+              <li><strong>Scene control:</strong> 3D Gaussian splatting (Kerbl et al.)</li>
+              <li><strong>Benchmark:</strong> LMSYS / LMArena</li>
+            </ul>
+          </div>
+          <div class="card" data-lang="mn">
+            <ul class="list-tight">
+              <li><strong>Локал иж бүрдэл:</strong> ComfyUI, LM Studio, Pinokio, Model Context Protocol</li>
+              <li><strong>Кадрын хяналт:</strong> 3D Gaussian splatting (Kerbl нар)</li>
+              <li><strong>Харьцуулалт:</strong> LMSYS / LMArena</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 10) Closing -->
+        <section id="closing">
+          <h2 data-lang="en">10) The closing stance <a class="anchor" href="#closing">#</a></h2>
+          <h2 data-lang="mn">10) Төгсгөлийн байр суурь <a class="anchor" href="#closing">#</a></h2>
+
+          <p data-lang="en">
+            We’ve “played through” creativity on 2D screens. Next: local, embodied, personally tuned—and deeply human selection and connection.
+            AI helps us make more. <strong>We must decide what matters.</strong>
+          </p>
+          <p data-lang="mn">
+            Бид 2D дэлгэцэн дээр хангалттай “тоглосон”. Одоо: локал, биежсэн, хувьчилсан—тэгээд хүний шүүлт, холбоос.
+            AI илүү ихийг бүтээхэд тусална. <strong>Юу чухал вэ гэдгийг бид шийднэ.</strong>
+          </p>
+        </section>
+
+        <!-- All links from the deck -->
+        <section id="link-pack">
+          <h2 data-lang="en">All links from the deck <a class="anchor" href="#link-pack">#</a></h2>
+          <h2 data-lang="mn">Илтгэлийн бүх холбоос <a class="anchor" href="#link-pack">#</a></h2>
+          <p class="muted" data-lang="en">Extracted as-is so you can retrace every reference.</p>
+          <p class="muted" data-lang="mn">Эх хэлбэрээр нь гаргасан — эх сурвалжийг буцаан мөрдөөрэй.</p>
+
+          <ol class="link-list" id="deckLinks">
+            <li>http://arxiv.org/abs/2503.23674</li>
+            <li>https://dang.ai/ai-graveyard</li>
+            <li>https://de.m.wikipedia.org/wiki/Saarland_1947_bis_1956</li>
+            <li>https://humsci.stanford.edu/feature/study-finds-chatgpts-latest-bot-behaves-humans-only-better</li>
+            <li>https://korra.ai/the-67-billion-warning-how-ai-hallucinations-hurt-enterprises-and-how-to-stop-them/</li>
+            <li>https://lmarena.ai/</li>
+            <li>https://ventionteams.com/solutions/ai/report</li>
+            <li>https://www.allaboutai.com/resources/ai-statistics/ai-hallucinations/</li>
+            <li>https://www.forbes.com/sites/bernardmarr/2025/03/10/15-mind-blowing-ai-statistics-everyone-must-know-about-now/</li>
+            <li>https://www.forbes.com/sites/lanceeliot/2025/05/14/top-ten-uses-of-ai-puts-therapy-and-companionship-at-the-1-spot/</li>
+            <li>https://www.gallup.com/workplace/651203/workplace-answering-big-questions.aspx</li>
+            <li>https://www.newscientist.com/article/2448687-an-ai-can-beat-captcha-tests-100-per-cent-of-the-time/</li>
+            <li>https://www.reliablesoft.net/facebook-statistics/</li>
+            <li>https://www.statista.com/statistics/1013474/facebook-fake-account-removal-quarter/</li>
+            <li>https://www.uni-siegen.de/fb6/phima/romsem/dateien/texte_romseminar_2008_3.pdf</li>
+          </ol>
+          <div class="card" style="margin-top:12px">
+            <button class="pill" id="copyLinks">Copy link pack</button>
+          </div>
+        </section>
+
+        <!-- References -->
+        <section id="refs">
+          <h2 data-lang="en">References & extras <a class="anchor" href="#refs">#</a></h2>
+          <h2 data-lang="mn">Эх сурвалж ба нэмэлтүүд <a class="anchor" href="#refs">#</a></h2>
+          <ul class="list-tight" data-lang="en">
+            <li><a href="https://aiindex.stanford.edu/report/" target="_blank" rel="noopener">Stanford AI Index 2024</a></li>
+            <li><a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-2024" target="_blank" rel="noopener">McKinsey — State of AI 2024</a></li>
+            <li><a href="https://arxiv.org/abs/2307.01850" target="_blank" rel="noopener">Model Collapse (Shumailov et al.)</a></li>
+            <li><a href="https://github.com/comfyanonymous/ComfyUI" target="_blank" rel="noopener">ComfyUI</a> • <a href="https://lmstudio.ai/" target="_blank" rel="noopener">LM Studio</a> • <a href="https://pinokio.computer/" target="_blank" rel="noopener">Pinokio</a> • <a href="https://github.com/modelcontextprotocol" target="_blank" rel="noopener">Model Context Protocol</a></li>
+            <li><a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/" target="_blank" rel="noopener">3D Gaussian Splatting</a></li>
+            <li><a href="https://lmarena.ai/" target="_blank" rel="noopener">LMSYS / LMArena</a></li>
+            <li><a href="https://www.youtube.com/watch?v=bzdAosG4qBk" target="_blank" rel="noopener">AutoDroid talk</a></li>
+          </ul>
+          <ul class="list-tight" data-lang="mn">
+            <li><a href="https://aiindex.stanford.edu/report/" target="_blank" rel="noopener">Stanford AI Index 2024</a></li>
+            <li><a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-2024" target="_blank" rel="noopener">McKinsey — State of AI 2024</a></li>
+            <li><a href="https://arxiv.org/abs/2307.01850" target="_blank" rel="noopener">Model Collapse (Shumailov et al.)</a></li>
+            <li><a href="https://github.com/comfyanonymous/ComfyUI" target="_blank" rel="noopener">ComfyUI</a> • <a href="https://lmstudio.ai/" target="_blank" rel="noopener">LM Studio</a> • <a href="https://pinokio.computer/" target="_blank" rel="noopener">Pinokio</a> • <a href="https://github.com/modelcontextprotocol" target="_blank" rel="noopener">Model Context Protocol</a></li>
+            <li><a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/" target="_blank" rel="noopener">3D Gaussian Splatting</a></li>
+            <li><a href="https://lmarena.ai/" target="_blank" rel="noopener">LMSYS / LMArena</a></li>
+            <li><a href="https://www.youtube.com/watch?v=bzdAosG4qBk" target="_blank" rel="noopener">AutoDroid talk</a></li>
+          </ul>
+
+          <footer class="footer">
+            <p data-lang="en">© <span id="year"></span> — Companion site to the keynote “From Local Models to Lasting Moments”. Replace text, keep IDs; quicklinks stay in sync.</p>
+            <p data-lang="mn">© <span id="year2"></span> — “From Local Models to Lasting Moments” илтгэлийн хамтрагч сайт. Текстээ солиод, ID-гаа хадгал; холбоосууд синктэй үлдэнэ.</p>
+          </footer>
+        </section>
+
       </article>
     </main>
   </div>
 
   <script>
-    const d = new Date();
-    document.getElementById('updated').textContent = d.toLocaleDateString();
+    // Init language from storage (default MN)
+    const initialLang = localStorage.getItem('site-lang') || 'mn';
+    document.documentElement.setAttribute('lang', initialLang);
 
-    function setLang(lang){
-      document.querySelectorAll('[data-lang]').forEach(el=>{
-        el.style.display = (el.getAttribute('data-lang')===lang) ? '' : 'none';
+    // Buttons
+    document.getElementById('btnMN').addEventListener('click', () => {
+      document.documentElement.setAttribute('lang', 'mn');
+      localStorage.setItem('site-lang', 'mn');
+    });
+    document.getElementById('btnEN').addEventListener('click', () => {
+      document.documentElement.setAttribute('lang', 'en');
+      localStorage.setItem('site-lang', 'en');
+    });
+
+    // Dates
+    const now = new Date();
+    const upd = document.getElementById('updated'); if (upd) upd.textContent = now.toLocaleDateString();
+    const y = document.getElementById('year'); if (y) y.textContent = now.getFullYear();
+    const y2 = document.getElementById('year2'); if (y2) y2.textContent = now.getFullYear();
+
+    // Linkify "All links from the deck" + Copy
+    (function(){
+      document.querySelectorAll('#deckLinks li').forEach(li=>{
+        const url = li.textContent.trim();
+        if (/^https?:\/\//i.test(url)) li.innerHTML = '<a href="'+url+'" target="_blank" rel="noopener">'+url+'</a>';
       });
-    }
-
-    // Standardmäßig MN anzeigen
-    setLang('mn');
+      const copyBtn = document.getElementById('copyLinks') || (()=>{
+        const btn = document.createElement('button');
+        btn.id='copyLinks'; btn.className='pill'; btn.textContent='Copy link pack';
+        const holder = document.createElement('div'); holder.className='card'; holder.style.marginTop='12px';
+        holder.appendChild(btn);
+        document.getElementById('link-pack').appendChild(holder);
+        return btn;
+      })();
+      copyBtn.addEventListener('click', ()=>{
+        const list = Array.from(document.querySelectorAll('#deckLinks li a')).map(a=>a.href);
+        navigator.clipboard.writeText(list.join('\n')).then(()=>{
+          copyBtn.textContent='Copied ✓'; setTimeout(()=>copyBtn.textContent='Copy link pack',1500);
+        });
+      });
+    })();
   </script>
 </body>
 </html>
